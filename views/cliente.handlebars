@@ -1,0 +1,27 @@
+<div class="page-header">
+<h3>Cadastro de clientes</h3>
+<!-- <a href="/cliente/add" class="glyphicon glyphicon-plus-sign" aria-hidden="true" /> -->
+<table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Email</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    {{#each data}}
+    <tbody>
+      <tr>
+        <td>{{this.NAME}}</td>
+        <td>{{this.ENDERECO}}</td>
+        <td>{{this.EMAIL}}</td>
+        <td>
+		    <a href="/cliente/edit/{{this.OID}}" class="glyphicon glyphicon-edit" aria-hidden="true"/>
+        <a href="/cliente/delete/{{this.OID}}" class="glyphicon glyphicon-minus-sign" aria-hidden="true"/>
+        </td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>

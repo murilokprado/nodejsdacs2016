@@ -1,0 +1,28 @@
+{
+  "name": "nodejsdacs2016",
+  "version": "1.0.0",
+  "description": "Aplicacao testes nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waltercoan/nodejsdacs2016.git"
+  },
+  "author": "Walter Coan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waltercoan/nodejsdacs2016/issues"
+  },
+  "homepage": "https://github.com/waltercoan/nodejsdacs2016#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-generator": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.5.4",
+    "nodemon": "^1.10.2"
+  }
+}
