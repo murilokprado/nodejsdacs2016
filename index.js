@@ -110,31 +110,24 @@ app.post('/cliente/save',function(req,res){
 	//console.log(req.body);
 
 	var queryString = "";
+	var array = [];
 	conn = dbcomm();
 
 	if(req.body.oid == 0){
-		conn.query('INSERT INTO cliente (NAME, EMAIL, ENDERECO) values (?, ?, ?)', 
-			[req.body.name,req.body.email, req.body.endereco], function (err, rows, fields) {
-				if(err)
-					console.log('Error While performing Query');
-			res.status(202);
-			res.redirect('/cliente'); 
-		});
-		//res.status(202);
-		//res.redirect('/cliente');
+		queryString = "INSERT INTO cliente (NOME, EMAIL, ENDERECO) values (?, ?, ?)";
+		array.push(req.body.name,req.body.email, req.body.endereco);
 	}else{
-
-		conn.query("update cliente set NAME= ?,ENDERECO=?,EMAIL=? WHERE OID = ?", 
-			[req.body.name,req.body.endereco, req.body.email, req.body.oid], function (err, rows, fields) {
-				if(err)
-					console.log('Error While performing Query');
-
-			res.status(202);
-			res.redirect('/cliente'); 
-		});
-		//res.status(202);
-		//res.redirect('/cliente'); 	 	
+		queryString = "UPDATE CLIENTE SET NOME= ?,ENDERECO=?,EMAIL=? WHERE OID = ?";
+		array.push(req.body.name,req.body.endereco, req.body.email, req.body.oid);
  	}
+
+	conn.query(queryString, array,
+		function (err, rows, fields) {
+			if(err)
+				console.log('Error While performing Query');
+		res.status(202);
+		res.redirect('/cliente'); 
+	});
  	
 });
 
@@ -160,7 +153,7 @@ app.get('/cliente/edit/:id',function(req,res){
 
 			console.log(rows);
 			res.status(202);
-			res.render('contact',{data:rows});			
+			res.render('clientedetail',{data:rows});			
 	});
 });
 

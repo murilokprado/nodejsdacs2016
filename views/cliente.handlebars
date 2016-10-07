@@ -1,6 +1,7 @@
 <div class="page-header">
 <h3>Cadastro de clientes</h3>
 <!-- <a href="/cliente/add" class="glyphicon glyphicon-plus-sign" aria-hidden="true" /> -->
+<button type="button" class="btn btn-default"><a href="/cliente/add/">Cadastra Cliente</a></button>
 <table class="table">
     <thead>
       <tr>
@@ -13,7 +14,7 @@
     {{#each data}}
     <tbody>
       <tr>
-        <td>{{this.NAME}}</td>
+        <td>{{this.NOME}}</td>
         <td>{{this.ENDERECO}}</td>
         <td>{{this.EMAIL}}</td>
         <td>
